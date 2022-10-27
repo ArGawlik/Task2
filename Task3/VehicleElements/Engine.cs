@@ -1,0 +1,33 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Task3.VehicleElements
+{
+    public class Engine
+    {
+        int power;
+        double? volume;
+        EngineType type;
+        string serialNumber;
+
+        public Engine(int power, double? volume, EngineType type, string serialNumber)
+        {
+            this.power = power;
+            this.volume = volume;
+            this.type = type;
+            this.serialNumber = serialNumber;
+        }
+
+        public override string ToString()
+        {
+            return "\nEngine details:" +
+                "\nPower: " + power + "HP" +
+                volume == null?"":"\nVolume: " + volume + "cdm" +
+                "\nType: " + type +
+                "\nSerial number: " + serialNumber;
+        }
+    }
+}
