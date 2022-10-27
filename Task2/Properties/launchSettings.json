@@ -2,7 +2,7 @@
   "profiles": {
     "Task2": {
       "commandName": "Project",
-      "commandLineArgs": "366\r\n16"
+      "commandLineArgs": "10\r\n2"
     }
   }
 }
