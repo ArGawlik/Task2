@@ -16,7 +16,7 @@ namespace Task3
 
         public override string ToString()
         {
-            return $"{type} details: \n" + engine + "\n" + chassis + "\n" + transmission;
+            return $"{type} details: \n" + engine + "\n" + chassis + "\n" + transmission +"\n";
         }
     }
 }

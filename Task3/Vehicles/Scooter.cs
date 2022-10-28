@@ -9,12 +9,21 @@ namespace Task3.Vehicles
 {
     internal class Scooter : Vehicle
     {
-        public Scooter()
+        public bool removableBattery;
+        public Scooter(bool removableBattery)
         {
             type = "Scooter";
             engine = new Engine(80, null, EngineType.Electric, "HJKFG3487");
             chassis = new Chassis(2, "YUIR5676", 160);
             transmission = new Transmission(TransmissionTypes.Auto, 4, "Honda");
+            this.removableBattery = removableBattery;
+        }
+
+        public override string ToString()
+        {
+            return base.ToString() +
+                "\nAdditional info:" +
+                "\nHas removable battery: " + removableBattery;
         }
     }
 }
