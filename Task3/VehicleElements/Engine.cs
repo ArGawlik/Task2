@@ -25,7 +25,7 @@ namespace Task3.VehicleElements
         {
             return "\nEngine details:" +
                 "\nPower: " + power + "HP" +
-                volume == null?"":"\nVolume: " + volume + "cdm" +
+                (volume == null?"":"\nVolume: " + volume + "cdm") +
                 "\nType: " + type +
                 "\nSerial number: " + serialNumber;
         }

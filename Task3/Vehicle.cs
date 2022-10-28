@@ -7,20 +7,12 @@ using Task3.VehicleElements;
 
 namespace Task3
 {
-    internal class Vehicle
+    internal abstract class Vehicle
     {
-        public string type; 
+        public string type;
         public Chassis chassis;
         public Engine engine;
         public Transmission transmission;
-
-        public Vehicle(string type, Chassis chassis, Engine engine, Transmission transmission)
-        {
-            this.type = type;
-            this.chassis = chassis;
-            this.engine = engine;
-            this.transmission = transmission;
-        }
 
         public override string ToString()
         {
