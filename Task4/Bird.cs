@@ -8,6 +8,10 @@ namespace Task4
 {
     internal class Bird : IFlyable
     {
+        /*
+         * The bird can fly with random speed between 0 and 20.
+         * It can fly on maximum heigth 10km.
+         */
         Coordinate currentPosition = new Coordinate(0, 0, 0);
         int speed = new Random().Next(0, 20);
         public void FlyTo(Coordinate point)
