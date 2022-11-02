@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
+using System.Xml;
 
 namespace Task3.VehicleElements
 {
     public class Engine
     {
         int power;
-        double? volume;
+        public double? volume;
         EngineType type;
         string serialNumber;
 
@@ -28,6 +30,32 @@ namespace Task3.VehicleElements
                 (volume == null?"":"\nVolume: " + volume + "cdm") +
                 "\nType: " + type +
                 "\nSerial number: " + serialNumber;
+        }
+
+        public string getXmlInformation()
+        {
+            StringBuilder sb = new StringBuilder();
+            XmlWriterSettings xws = new XmlWriterSettings();
+            xws.OmitXmlDeclaration = true;
+            xws.Indent = true;
+
+            using (XmlWriter xw = XmlWriter.Create(sb, xws))
+            {
+                XDocument doc = new XDocument(
+                    getXmlElements()
+                );
+                doc.WriteTo(xw);
+            }
+            return sb.ToString();
+        }
+
+        public XElement getXmlElements()
+        {
+            return new XElement("Engine",
+                        new XElement("Power", power),
+                        new XElement("Volume", volume),
+                        new XElement("Type", type),
+                        new XElement("SerialNumber", serialNumber));
         }
     }
 }

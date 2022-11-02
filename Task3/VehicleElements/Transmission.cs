@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
+using System.Xml;
 
 namespace Task3.VehicleElements
 {
     internal class Transmission
     {
-        TransmissionTypes type;
+        public TransmissionTypes type;
         int gearsNumber;
         string manufacturer;
 
@@ -25,6 +27,30 @@ namespace Task3.VehicleElements
                 "\nType: " + type +
                 "\nGears number: " + gearsNumber +
                 "\nManufacturer: " + manufacturer;
+        }
+
+        public string getXmlInformation()
+        {
+            StringBuilder sb = new StringBuilder();
+            XmlWriterSettings xws = new XmlWriterSettings();
+            xws.OmitXmlDeclaration = true;
+            xws.Indent = true;
+
+            using (XmlWriter xw = XmlWriter.Create(sb, xws))
+            {
+                XDocument doc = new XDocument(
+                    getXmlElements());
+                doc.WriteTo(xw);
+            }
+            return sb.ToString();
+        }
+
+        public XElement getXmlElements()
+        {
+            return new XElement("Transmission",
+                        new XElement("Type", type),
+                        new XElement("GearsNumber", gearsNumber),
+                        new XElement("Manufacturer", manufacturer));
         }
     }
 }

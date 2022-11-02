@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace Task3.VehicleElements
 {
@@ -25,6 +27,30 @@ namespace Task3.VehicleElements
                 "\nWheels number: " + wheelsNumber +
                 "\nID Number: " + idNumber +
                 "\nPermissible load: " + permissibleLoad + "kg";
+        }
+
+        public string getXmlInformation()
+        {
+            StringBuilder sb = new StringBuilder();
+            XmlWriterSettings xws = new XmlWriterSettings();
+            xws.OmitXmlDeclaration = true;
+            xws.Indent = true;
+
+            using(XmlWriter xw = XmlWriter.Create(sb, xws))
+            {
+                XDocument doc = new XDocument(
+                    getXmlElements());
+                doc.WriteTo(xw);
+            }
+            return sb.ToString();
+        }
+
+        public XElement getXmlElements()
+        {
+            return new XElement("Chassis",
+                        new XElement("WheelsNumber", wheelsNumber),
+                        new XElement("IDNumber", idNumber),
+                        new XElement("PermissibleLoad", permissibleLoad));
         }
     }
 }

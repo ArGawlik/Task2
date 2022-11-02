@@ -12,7 +12,7 @@ namespace Task3.Vehicles
         public int maxSpeed;
         public PassengerCar(int maxSpeed)
         {
-            type = "Passenger car";
+            type = "PassengerCar";
             engine = new Engine(120, 1.8, EngineType.Gasoline, "TUY5775");
             chassis = new Chassis(4, "FFLJ7824", 1500);
             transmission = new Transmission(TransmissionTypes.Manual, 6, "Skoda");
