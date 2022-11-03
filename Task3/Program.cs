@@ -38,19 +38,12 @@ namespace Task3
             }
 
             Console.WriteLine("All information about all vehicles, grouped by transmission type:");
-            var auto = vehicles.Where(vehicle => vehicle.transmission.type == TransmissionTypes.Auto).Select(v=>v.getXmlElement()).ToArray();
-
-            var manual = from vehicle in vehicles
-                       where vehicle.transmission.type == TransmissionTypes.Manual
-                       select vehicle.getXmlElement();
-
-
-            var manualElements = UtilXmlWriter.ConcatElements("Manual", manual.ToArray());
-            var autoElements = UtilXmlWriter.ConcatElements("Auto", auto);
-
-            var allElements = UtilXmlWriter.ConcatElements("TransmissionType", manualElements, autoElements);
-            Console.WriteLine(UtilXmlWriter.WriteXml(allElements));
-
+            var grouped = vehicles.GroupBy(v => v.transmission.type);
+            foreach(var g in grouped)
+            {
+                var a = UtilXmlWriter.ConcatElements(g.Key.ToString(), g.Select(v => v.getXmlElement()).ToArray());
+                Console.WriteLine(UtilXmlWriter.WriteXml(a));
+            }
         }
     }
 }
