@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Xml.Linq;
 using System.Xml;
 using Task3.VehicleElements;
+using Task5;
 
 namespace Task3
 {
@@ -20,25 +21,12 @@ namespace Task3
         {
             return $"{type} details: \n" + engine + "\n" + chassis + "\n" + transmission +"\n";
         }
-
-        public string getXmlInformation()
+        public XElement getXmlElement()
         {
-            StringBuilder sb = new StringBuilder();
-            XmlWriterSettings xws = new XmlWriterSettings();
-            xws.OmitXmlDeclaration = true;
-            xws.Indent = true;
-
-            using (XmlWriter xw = XmlWriter.Create(sb, xws))
-            {
-                XDocument doc = new XDocument(
-                    new XElement(type,
+            return new XElement(type,
                         engine.getXmlElements(),
                         transmission.getXmlElements(),
-                        chassis.getXmlElements())
-                );
-                doc.WriteTo(xw);
-            }
-            return sb.ToString();
+                        chassis.getXmlElements());
         }
     }
 }

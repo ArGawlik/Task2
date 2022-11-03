@@ -1,5 +1,7 @@
-﻿using Task3.VehicleElements;
+﻿using System.Xml.Linq;
+using Task3.VehicleElements;
 using Task3.Vehicles;
+using Task5;
 
 namespace Task3
 {
@@ -22,14 +24,10 @@ namespace Task3
                          where vehicle.GetType().Name.Equals("Bus") || vehicle.GetType().Name.Equals("Truck")
                          select vehicle;
 
-            var third = from vehicle in vehicles
-                        where vehicle.transmission.type == TransmissionTypes.Auto
-                        select vehicle;
-
             Console.WriteLine("All information about all vehicles an engine capacity of which is more than 1.5 liters:");
             foreach(var vehicle in first)
             {
-                Console.WriteLine(vehicle.getXmlInformation() + "\n");
+                Console.WriteLine(UtilXmlWriter.WriteXml(vehicle.getXmlElement()) + "\n");
             }
 
             Console.WriteLine("Engine type, serial number and power rating for all buses and trucks:");
@@ -38,6 +36,21 @@ namespace Task3
                 Console.WriteLine(vehicle.GetType().Name + ":");
                 Console.WriteLine(vehicle.engine.getXmlInformation() + "\n");
             }
+
+            Console.WriteLine("All information about all vehicles, grouped by transmission type:");
+            var auto = vehicles.Where(vehicle => vehicle.transmission.type == TransmissionTypes.Auto).Select(v=>v.getXmlElement()).ToArray();
+
+            var manual = from vehicle in vehicles
+                       where vehicle.transmission.type == TransmissionTypes.Manual
+                       select vehicle.getXmlElement();
+
+
+            var manualElements = UtilXmlWriter.ConcatElements("Manual", manual.ToArray());
+            var autoElements = UtilXmlWriter.ConcatElements("Auto", auto);
+
+            var allElements = UtilXmlWriter.ConcatElements("TransmissionType", manualElements, autoElements);
+            Console.WriteLine(UtilXmlWriter.WriteXml(allElements));
+
         }
     }
 }
