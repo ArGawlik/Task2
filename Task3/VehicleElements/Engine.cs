@@ -32,23 +32,6 @@ namespace Task3.VehicleElements
                 "\nSerial number: " + serialNumber;
         }
 
-        public string getXmlInformation()
-        {
-            StringBuilder sb = new StringBuilder();
-            XmlWriterSettings xws = new XmlWriterSettings();
-            xws.OmitXmlDeclaration = true;
-            xws.Indent = true;
-
-            using (XmlWriter xw = XmlWriter.Create(sb, xws))
-            {
-                XDocument doc = new XDocument(
-                    getXmlElements()
-                );
-                doc.WriteTo(xw);
-            }
-            return sb.ToString();
-        }
-
         public XElement getXmlElements()
         {
             return new XElement("Engine",

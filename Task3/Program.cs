@@ -33,8 +33,8 @@ namespace Task3
             Console.WriteLine("Engine type, serial number and power rating for all buses and trucks:");
             foreach(var vehicle in second)
             {
-                Console.WriteLine(vehicle.GetType().Name + ":");
-                Console.WriteLine(vehicle.engine.getXmlInformation() + "\n");
+                var x = UtilXmlWriter.ConcatElements(vehicle.GetType().Name, vehicle.engine.getXmlElements());
+                Console.WriteLine(UtilXmlWriter.WriteXml(x) + "\n");
             }
 
             Console.WriteLine("All information about all vehicles, grouped by transmission type:");
