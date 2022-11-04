@@ -9,13 +9,19 @@ namespace Task4
     internal class Drone : IFlyable
     {
         /*  
-         * The drone can fly with constant speed 20km/h. Maximum distance it can fly on single charge is 1000km.
+         * The drone can fly with constant speed defined in constructor (default 20km/h). Maximum distance it can fly on single charge is 1000km.
          * Lets assume that the battery is automatically recharged immediately after drone reach the destination. 
          * Then it can immediately fly to another point.
          */
         Coordinate currentPosition = new Coordinate(0, 0, 0);
         int speed = 20;
         readonly int maxDistance = 1000;
+
+        public Drone(Coordinate currentPosition, int speed = 20)
+        {
+            this.currentPosition = currentPosition;
+            this.speed = speed;
+        }
 
         public void FlyTo(Coordinate point)
         {

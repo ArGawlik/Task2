@@ -20,8 +20,9 @@ namespace Task4
         double fuelConsumption;
         double maxDistance;
 
-        public Airplane(double fuelConsumption, double currentFuel = 10000)
+        public Airplane(Coordinate currentPosition, double fuelConsumption, double currentFuel = 10000)
         {
+            this.currentPosition = currentPosition;
             this.currentFuel = currentFuel > fuelTankCapacity ? fuelTankCapacity : currentFuel;
             this.fuelConsumption = fuelConsumption;
             maxDistance = fuelTankCapacity / fuelConsumption * 100;

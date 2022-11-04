@@ -14,6 +14,12 @@ namespace Task4
          */
         Coordinate currentPosition = new Coordinate(0, 0, 0);
         int speed = new Random().Next(0, 20);
+
+        public Bird(Coordinate currentPosition)
+        {
+            this.currentPosition = currentPosition;
+        }
+
         public void FlyTo(Coordinate point)
         {
             // The bird can fly only on maximum ceiling 10km (Z axis)
