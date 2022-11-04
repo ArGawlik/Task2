@@ -18,30 +18,30 @@ namespace Task3
 
             // step 1
 
-            var first = from vehicle in vehicles
+            var highEngineCap = from vehicle in vehicles
                         where vehicle.engine.volume > 1.5
                         select vehicle;
 
             Console.WriteLine("All information about all vehicles an engine capacity of which is more than 1.5 liters:");
-            foreach(var vehicle in first)
+            foreach(var vehicle in highEngineCap)
             {
                 Console.WriteLine(UtilXmlWriter.WriteXml(vehicle.getXmlElement()) + "\n");
             }
-            UtilXmlWriter.SaveToXmlFile("file1.xml", "EngineCapMoreThan1.5", first.Select(x => x.getXmlElement()).ToArray());
+            UtilXmlWriter.SaveToXmlFile("file1.xml", "EngineCapMoreThan1.5", highEngineCap.Select(x => x.getXmlElement()).ToArray());
 
             // step 2
 
-            var second = from vehicle in vehicles
+            var bussesAndTrucks = from vehicle in vehicles
                          where vehicle.GetType().Name.Equals("Bus") || vehicle.GetType().Name.Equals("Truck")
                          select vehicle;
 
             Console.WriteLine("Engine type, serial number and power rating for all buses and trucks:");
-            foreach(var vehicle in second)
+            foreach(var vehicle in bussesAndTrucks)
             {
                 var x = UtilXmlWriter.ConcatElements(vehicle.GetType().Name, vehicle.engine.getXmlElement());
                 Console.WriteLine(UtilXmlWriter.WriteXml(x) + "\n");
             }
-            UtilXmlWriter.SaveToXmlFile("file2.xml", "BussesAndTrucksEngines", second.Select(x => x.engine.getXmlElement()).ToArray());
+            UtilXmlWriter.SaveToXmlFile("file2.xml", "BussesAndTrucksEngines", bussesAndTrucks.Select(x => x.engine.getXmlElement()).ToArray());
 
             // step 3
 
