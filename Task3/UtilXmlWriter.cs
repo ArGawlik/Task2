@@ -29,5 +29,13 @@ namespace Task5
         {
             return new XElement(root, elements);
         }
+
+        public static void SaveToXmlFile(string fileName, string root, params XElement[] elements)
+        {
+            string basePath = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+            Console.WriteLine(basePath + @"\..\..\..");
+            new XElement(root, elements).Save(basePath + @"\..\..\..\" + fileName);
+            Console.WriteLine("File saved");
+        }
     }
 }

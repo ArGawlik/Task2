@@ -29,7 +29,7 @@ namespace Task3.VehicleElements
                 "\nManufacturer: " + manufacturer;
         }
 
-        public XElement getXmlElements()
+        public XElement getXmlElement()
         {
             return new XElement("Transmission",
                         new XElement("Type", type),

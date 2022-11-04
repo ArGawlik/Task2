@@ -24,9 +24,9 @@ namespace Task3
         public XElement getXmlElement()
         {
             return new XElement(type,
-                        engine.getXmlElements(),
-                        transmission.getXmlElements(),
-                        chassis.getXmlElements());
+                        engine.getXmlElement(),
+                        transmission.getXmlElement(),
+                        chassis.getXmlElement());
         }
     }
 }

@@ -32,7 +32,7 @@ namespace Task3.VehicleElements
                 "\nSerial number: " + serialNumber;
         }
 
-        public XElement getXmlElements()
+        public XElement getXmlElement()
         {
             return new XElement("Engine",
                         new XElement("Power", power),

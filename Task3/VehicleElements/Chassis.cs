@@ -29,7 +29,7 @@ namespace Task3.VehicleElements
                 "\nPermissible load: " + permissibleLoad + "kg";
         }
 
-        public XElement getXmlElements()
+        public XElement getXmlElement()
         {
             return new XElement("Chassis",
                         new XElement("WheelsNumber", wheelsNumber),

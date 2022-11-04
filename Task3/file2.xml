@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BussesAndTrucksEngines>
+  <Engine>
+    <Power>500</Power>
+    <Volume>6</Volume>
+    <Type>Diesel</Type>
+    <SerialNumber>ASD123</SerialNumber>
+  </Engine>
+  <Engine>
+    <Power>250</Power>
+    <Volume>4.5</Volume>
+    <Type>Diesel</Type>
+    <SerialNumber>KRV99999</SerialNumber>
+  </Engine>
+</BussesAndTrucksEngines>
