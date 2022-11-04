@@ -17,6 +17,7 @@
       <IDNumber>FGH8824</IDNumber>
       <PermissibleLoad>10000</PermissibleLoad>
     </Chassis>
+    <AdditionalInfo>Vehicle height: 3.8m</AdditionalInfo>
   </Truck>
   <PassengerCar>
     <Engine>
@@ -35,6 +36,7 @@
       <IDNumber>FFLJ7824</IDNumber>
       <PermissibleLoad>1500</PermissibleLoad>
     </Chassis>
+    <AdditionalInfo>Max speed: 250km/h</AdditionalInfo>
   </PassengerCar>
   <Bus>
     <Engine>
@@ -53,5 +55,6 @@
       <IDNumber>POIU57679</IDNumber>
       <PermissibleLoad>5000</PermissibleLoad>
     </Chassis>
+    <AdditionalInfo>Seats number: 50</AdditionalInfo>
   </Bus>
 </EngineCapMoreThan1.5>

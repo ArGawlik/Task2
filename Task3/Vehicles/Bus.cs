@@ -19,13 +19,7 @@ namespace Task3.Vehicles
             chassis = new Chassis(6, "POIU57679", 5000);
             transmission = new Transmission(TransmissionTypes.Auto, 8, "Mercedes");
             this.seatsNumber = seatsNumber;
-        }
-
-        public override string ToString()
-        {
-            return base.ToString() +
-                "\nAdditional info:" +
-                "\nSeats number: " + seatsNumber;
+            additionalInfo = "Seats number: " + seatsNumber;
         }
     }
 }

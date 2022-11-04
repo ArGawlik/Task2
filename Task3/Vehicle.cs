@@ -16,17 +16,23 @@ namespace Task3
         public Chassis chassis;
         public Engine engine;
         public Transmission transmission;
+        public string additionalInfo;
 
         public override string ToString()
         {
-            return $"{type} details: \n" + engine + "\n" + chassis + "\n" + transmission +"\n";
+            return $"{type} details:\n" +
+                $"{engine}\n" +
+                $"{chassis}\n" +
+                $"{transmission}\n" + 
+                $"Additional info: \n{additionalInfo}";
         }
         public XElement getXmlElement()
         {
             return new XElement(type,
                         engine.getXmlElement(),
                         transmission.getXmlElement(),
-                        chassis.getXmlElement());
+                        chassis.getXmlElement(),
+                        new XElement("AdditionalInfo", additionalInfo));
         }
     }
 }

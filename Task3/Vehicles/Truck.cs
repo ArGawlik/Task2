@@ -17,14 +17,7 @@ namespace Task3.Vehicles
             chassis = new Chassis(8, "FGH8824", 10000);
             transmission = new Transmission(TransmissionTypes.Manual, 6, "Volvo");
             this.height = height;
+            additionalInfo = "Vehicle height: " + height + "m";
         }
-
-        public override string ToString()
-        {
-            return base.ToString() +
-                "\nAdditional info:" +
-                "\nVehicle height: " + height + "m";
-        }
-
     }
 }

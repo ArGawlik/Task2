@@ -17,13 +17,7 @@ namespace Task3.Vehicles
             chassis = new Chassis(4, "FFLJ7824", 1500);
             transmission = new Transmission(TransmissionTypes.Manual, 6, "Skoda");
             this.maxSpeed = maxSpeed;
-        }
-
-        public override string ToString()
-        {
-            return base.ToString() + 
-                "\nAdditional info:"+
-                "\nMax speed: " + maxSpeed + "km/h";
+            additionalInfo = "Max speed: " + maxSpeed + "km/h";
         }
     }
 }

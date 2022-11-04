@@ -17,13 +17,7 @@ namespace Task3.Vehicles
             chassis = new Chassis(2, "YUIR5676", 160);
             transmission = new Transmission(TransmissionTypes.Auto, 4, "Honda");
             this.removableBattery = removableBattery;
-        }
-
-        public override string ToString()
-        {
-            return base.ToString() +
-                "\nAdditional info:" +
-                "\nHas removable battery: " + removableBattery;
+            additionalInfo = "Has removable battery: " + removableBattery;
         }
     }
 }
