@@ -12,11 +12,11 @@ namespace Task3
         static void Main(string[] args)
         {
             // creates few cars
-            PassengerCar car1 = new PassengerCar(250, 200, 2.5, EngineType.Gasoline, 6, TransmissionTypes.Manual, "asd1234");
-            PassengerCar car2 = new PassengerCar(180, 100, 1.5, EngineType.Diesel, 5, TransmissionTypes.Manual, "adg5674");
-            PassengerCar car3 = new PassengerCar(350, 100, 6, EngineType.Diesel, 10, TransmissionTypes.Auto, "kjla988");
-            PassengerCar car4 = new PassengerCar(220, 120, null, EngineType.Electric, 8, TransmissionTypes.Auto, "jhd8293");
-            Bus bus = new Bus(60, 250, 4.5, EngineType.Diesel, 8, TransmissionTypes.Auto, "uioj789");
+            PassengerCar car1 = new PassengerCar(250, "asd1234", new Engine(200, 2.5, EngineType.Gasoline, "hfks1234"), new Transmission(TransmissionTypes.Manual, 6, "Skoda"), new Chassis(4, "fhfkai4123", 2000));
+            PassengerCar car2 = new PassengerCar(180, "adg5674", new Engine(100, 1.5, EngineType.Diesel, "kfgni845"), new Transmission(TransmissionTypes.Manual, 5, "Skoda"), new Chassis(4, "thfghtai4123", 1800));
+            PassengerCar car3 = new PassengerCar(350, "kjla988", new Engine(250, 6, EngineType.Gasoline, "dkpjsd234"), new Transmission(TransmissionTypes.Auto, 10, "BMW"), new Chassis(4, "86fkai4123", 2000));
+            PassengerCar car4 = new PassengerCar(220, "jhd8293", new Engine(120, null, EngineType.Electric, "hfks1234"), new Transmission(TransmissionTypes.Auto, 8, "Tesla"), new Chassis(4, "55sai4123", 1700));
+            Bus bus = new Bus(60, "uioj789", new Engine(250, 4.5, EngineType.Diesel, "fgij1283"), new Transmission(TransmissionTypes.Auto, 8, "Mercedes"), new Chassis(8, "uhnf934", 3800));
 
             // initialization exception - passenger car speed must be between 90-350
             try
@@ -31,7 +31,7 @@ namespace Task3
             // other initialization exception - electric engines don't have volume
             try
             {
-                Scooter scooter = new Scooter(true, 80, 1.2, EngineType.Electric, 4, TransmissionTypes.Manual, "asd4562");
+                PassengerCar car5 = new PassengerCar(220, "jhd8293", new Engine(120, 2, EngineType.Electric, "hfks1234"), new Transmission(TransmissionTypes.Auto, 8, "Tesla"), new Chassis(4, "55sai4123", 1700));
             }
             catch (InitializationException e)
             {
@@ -78,7 +78,7 @@ namespace Task3
                 Console.WriteLine(e.Message);
             }
 
-            PassengerCar car6 = new PassengerCar(280, 300, 4.5, EngineType.Gasoline, 6, TransmissionTypes.Manual, "siud2893");
+            PassengerCar car6 = new PassengerCar(280, "siud2893", new Engine(300, 4.5, EngineType.Gasoline, "dfiug234"), new Transmission(TransmissionTypes.Manual, 6, "Skoda"), new Chassis(4, "dfgSDASD", 2000));
             
             // update exception - invalid id
             try

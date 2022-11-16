@@ -24,6 +24,19 @@ namespace Task3
         public double? engineVolume { get; set; }
         public string vehicleId { get; set; }
 
+        public Dictionary<string, string?> vehicleParameters = new Dictionary<string, string?>();
+
+        public void initDict()
+        {
+            vehicleParameters.Add("type", type);
+            vehicleParameters.Add("transmissionType", transmission.type.ToString());
+            vehicleParameters.Add("engineType", engine.type.ToString());
+            vehicleParameters.Add("enginePower", engine.power.ToString());
+            vehicleParameters.Add("engineVolume", engine.volume.ToString());
+            vehicleParameters.Add("vehicleId", vehicleId);
+        }
+
+
         public Vehicle() { }
 
         public Vehicle(int enginePower, double? engineVolume, EngineType engineType, int transmissionGearsNumber, TransmissionTypes transmissionType, string carId)

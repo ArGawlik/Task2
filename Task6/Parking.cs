@@ -39,31 +39,45 @@ namespace Task6
 
         public List<Vehicle> GetAutoByParameter(string parameter, string value)
         {
-            PropertyInfo actualProperty = null;
-            foreach (PropertyInfo property in typeof(Vehicle).GetProperties())
+            //PropertyInfo actualProperty = null;
+            //foreach (PropertyInfo property in typeof(Vehicle).GetProperties())
+            //{
+            //    if(property.Name == parameter)
+            //    {
+            //        actualProperty = property;
+            //        break;
+            //    }
+            //}
+            //if (actualProperty == null)
+            //{
+            //    throw new GetAutoByParameterException("Provided parameter does not exist");
+            //}
+            //else
+            //{
+            //    var selectedCars = Cars.Where(x => actualProperty.GetValue(x).ToString() == value).ToList();
+            //    if (selectedCars.Count > 0)
+            //    {
+            //        return selectedCars;
+            //    }
+            //    else
+            //    {
+            //        throw new GetAutoByParameterException($"Parameter {parameter} with provided value does not exist");
+            //    }
+            //}
+            if (Cars.Count == 0)
             {
-                if(property.Name == parameter)
-                {
-                    actualProperty = property;
-                    break;
-                }
+                throw new GetAutoByParameterException("No cars on parking");
             }
-            if (actualProperty == null)
+            if (!Cars[0].vehicleParameters.ContainsKey(parameter))
             {
                 throw new GetAutoByParameterException("Provided parameter does not exist");
             }
-            else
+            var result = Cars.Where(x => x.vehicleParameters[parameter] == value).ToList();
+            if (result.Count == 0)
             {
-                var selectedCars = Cars.Where(x => actualProperty.GetValue(x).ToString() == value).ToList();
-                if (selectedCars.Count > 0)
-                {
-                    return selectedCars;
-                }
-                else
-                {
-                    throw new GetAutoByParameterException($"Parameter {parameter} with provided value does not exist");
-                }
+                throw new GetAutoByParameterException($"Parameter {parameter} with provided value does not exist");
             }
+            return result;
         }
 
         public void UpdateAuto(string vehicleId, Vehicle newVehicle)

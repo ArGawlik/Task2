@@ -11,6 +11,8 @@ namespace Task3.Vehicles
     internal class PassengerCar : Vehicle
     {
         public int maxSpeed;
+
+        // some default car
         public PassengerCar(int maxSpeed) : base()
         {
             if(maxSpeed < 90)
@@ -29,7 +31,7 @@ namespace Task3.Vehicles
             additionalInfo = "Max speed: " + maxSpeed + "km/h";
         }
 
-        public PassengerCar(int maxSpeed, int enginePower, double? engineVolume, EngineType engineType, int transmissionGearsNumber, TransmissionTypes transmissionType, string carId) : base(enginePower, engineVolume, engineType, transmissionGearsNumber, transmissionType, carId)
+        public PassengerCar(int maxSpeed, string vehicleId, Engine engine, Transmission transmission, Chassis chassis)
         {
             if (maxSpeed < 90)
             {
@@ -41,11 +43,11 @@ namespace Task3.Vehicles
             }
             type = "PassengerCar";
             this.maxSpeed = maxSpeed;
-
-            engine = new Engine(enginePower, engineVolume, engineType, "TUY5775");
-            chassis = new Chassis(4, "FFLJ7824", 1500);
-            transmission = new Transmission(transmissionType, transmissionGearsNumber, "Skoda");
-            additionalInfo = "Max speed: " + maxSpeed + "km/h";
+            this.vehicleId = vehicleId;
+            this.engine = engine;
+            this.transmission = transmission;
+            this.chassis = chassis;
+            initDict();
         }
     }
 }

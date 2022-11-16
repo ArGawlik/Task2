@@ -11,10 +11,10 @@ namespace Task3.VehicleElements
 {
     public class Engine
     {
-        int power;
+        public int power;
         public double? volume;
-        EngineType type;
-        string serialNumber;
+        public EngineType type;
+        public string serialNumber;
 
         public Engine(int power, double? volume, EngineType type, string serialNumber)
         {
