@@ -30,9 +30,15 @@ namespace Task7.Commands
             }
             else
             {
-               Console.WriteLine("Average car price is: " + cars.Select(x=>x.unitPrice * x.quantity).Sum()/cars.Count);
+                if (cars.Count == 0)
+                {
+                    Console.WriteLine("No cars available");
+                } 
+                else
+                {
+                    Console.WriteLine("Average car price is: " + cars.Select(x=>x.unitPrice * x.quantity).Sum()/cars.Count);
+                }
             } 
         }
-
     }
 }

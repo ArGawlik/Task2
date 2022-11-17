@@ -7,10 +7,18 @@ namespace Task7
     {
         static void Main(string[] args)
         {
+            /*
+             * In the program we have a car store, which is implemented as sigleton
+             * It allows to add and store cars
+             * CountTypes and CountPrice implement ICommand with Execute() method which prints defined information
+             * Commands are stored in list and executed after receiving input 0 as a command
+             */
+
             Store store = Store.GetStore();
             string key = "";
             List<ICommand> commands = new List<ICommand>();
 
+            // you can add your own cars...
             while (key != "D2")
             {
                 Console.WriteLine("Select option:\n1 - add car\n2 - go to commands");
@@ -25,16 +33,17 @@ namespace Task7
                 }
             }
 
-            // or just use below code to avoid writing cars to console
-            Car car1 = new Car("Audi", "A6", 5, 120000);
-            Car car2 = new Car("Audi", "A4", 2, 60000);
-            Car car3 = new Car("Skoda", "Superb", 12, 80000);
-            Car car4 = new Car("Skoda", "Octavia", 3, 60000);
-            Car car5 = new Car("Mazda", "CX5", 4, 100000);
-            store.cars = new List<Car>() { car1, car2, car3, car4, car5 };
+            // ...or just uncomment and use below code to avoid writing cars to console
+
+            //Car car1 = new Car("Audi", "A6", 5, 120000);
+            //Car car2 = new Car("Audi", "A4", 2, 60000);
+            //Car car3 = new Car("Skoda", "Superb", 12, 80000);
+            //Car car4 = new Car("Skoda", "Octavia", 3, 60000);
+            //Car car5 = new Car("Mazda", "CX5", 4, 100000);
+            //store.cars = new List<Car>() { car1, car2, car3, car4, car5 };
 
 
-            Console.WriteLine("Write commands, or 0 to exit and execute commands");
+            Console.WriteLine("Write commands, or 0 to execute commands and exit program");
             Console.WriteLine("Available commands:\ncount all - count all cars" +
                 "\ncount types - count available car brands" +
                 "\ncount *type* - count cars of given type (ex. count Audi)" +
@@ -63,7 +72,6 @@ namespace Task7
                         break;
                 }
             }
-            
         }
     }
 }

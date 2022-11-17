@@ -10,7 +10,6 @@ namespace Task7
     public class Store
     {
         private static Store singleton = null;
-        List<ICommand> commands= new List<ICommand>();
         public List<Car> cars = new List<Car>();
         private Store() { }
         public static Store GetStore()
