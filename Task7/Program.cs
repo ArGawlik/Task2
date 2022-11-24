@@ -16,7 +16,7 @@ namespace Task7
 
             Store store = Store.GetStore();
             string key = "";
-            List<ICommand> commands = new List<ICommand>();
+            Invoker invoker = new Invoker();
 
             // you can add your own cars...
             while (key != "D2")
@@ -56,16 +56,16 @@ namespace Task7
                 switch (command)
                 {
                     case var x when new Regex(@"count \w*").IsMatch(x):
-                        commands.Add(new CountTypes(command.Split(" ").Last()));
+                        invoker.CountCars(command.Split(" ").Last());
                         break;                    
                     case var x when new Regex(@"average price \w*").IsMatch(x):
-                        commands.Add(new CountPrice(command.Split(" ").Last()));
+                        invoker.CountPriceOfType(command.Split(" ").Last());
                         break;
                     case "average price":
-                        commands.Add(new CountPrice(null));
+                        invoker.CountAveragePrice();
                         break;
                     case "0":
-                        commands.ForEach(x => x.Execute());
+                        invoker.ExecuteCommands();
                         break;
                     default:
                         Console.WriteLine("invalid command");

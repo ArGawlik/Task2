@@ -25,7 +25,7 @@ namespace Task7.Commands
                 }
                 else
                 {
-                    Console.WriteLine($"Average {type} price is: " + cars.Where(x => x.brand == type).Select(x => x.unitPrice * x.quantity).Sum() / cars.Where(x => x.brand == type).Count());
+                    Console.WriteLine($"Average {type} price is: " + cars.Where(x => x.brand == type).Select(x => x.unitPrice * x.quantity).Sum() / cars.Where(x => x.brand == type).Select(x=>x.quantity).Sum());
                 }
             }
             else
@@ -36,7 +36,7 @@ namespace Task7.Commands
                 } 
                 else
                 {
-                    Console.WriteLine("Average car price is: " + cars.Select(x=>x.unitPrice * x.quantity).Sum()/cars.Count);
+                    Console.WriteLine("Average car price is: " + cars.Select(x=>x.unitPrice * x.quantity).Sum()/cars.Select(x=>x.quantity).Sum());
                 }
             } 
         }
