@@ -32,6 +32,7 @@ namespace Task7
             {
                 command.Execute();
             }
+            commands.Clear();
         }
     }
 }
