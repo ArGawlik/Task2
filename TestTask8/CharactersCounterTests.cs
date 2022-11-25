@@ -2,7 +2,7 @@ using Task8;
 
 namespace TestTask8
 {
-    public class Tests
+    public class CharactersCounterTests
     {
         CharactersCounter counter;
 
