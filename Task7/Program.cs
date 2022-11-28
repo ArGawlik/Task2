@@ -1,5 +1,4 @@
 ﻿using System.Text.RegularExpressions;
-using Task7.Commands;
 
 namespace Task7
 {
@@ -48,14 +47,18 @@ namespace Task7
                 "\ncount types - count available car brands" +
                 "\ncount *type* - count cars of given type (ex. count Audi)" +
                 "\navergae price - average price of car" +
-                "\naverage price *type* - average price of car brand");
+                "\naverage price *type* - average price of car brand" +
+                "\ncount *type* price *under/above* *price* - count quantity of cars by type which cost less or more than provided price");
             string command = " ";
             while(command != "0" || command.Length == 0)
             {
                 command = Console.ReadLine();
                 switch (command)
                 {
-                    case var x when new Regex(@"count \w*").IsMatch(x):
+                    case var x when new Regex(@"count \w* price (above|under) \d+").IsMatch(x):
+                        invoker.CountTypesWithPrice(command);
+                        break;
+                    case var x when new Regex(@"count \w*$").IsMatch(x):
                         invoker.CountCars(command.Split(" ").Last());
                         break;                    
                     case var x when new Regex(@"average price \w*").IsMatch(x):

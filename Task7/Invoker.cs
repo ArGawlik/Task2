@@ -26,6 +26,12 @@ namespace Task7
             commands.Add(new CountPrice(null));
         }
 
+        public void CountTypesWithPrice(string command)
+        {
+            var commandWords = command.Split(' ');
+            commands.Add(new CountTypesWithPrice(int.Parse(commandWords.Last()), commandWords[1], commandWords[3]));
+        }
+
         public void ExecuteCommands()
         {
             foreach (ICommand command in commands)
